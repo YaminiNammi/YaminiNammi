@@ -1,0 +1,18 @@
+//Reduce example
+const users = [{first:"John", last:"A", age: 26},
+                {first:"Rachel", last:"A", age: 34},
+                {first:"Phoebee", last:"A", age: 56},
+                {first:"Monica", last:"A", age: 26}];
+                
+const output = users.reduce((acc, curr) =>{
+if(acc[curr.age]){
+  acc[curr.age]++;
+}else{
+   acc[curr.age] = 1;
+}
+  return acc;
+},{});
+
+console.log(output);
+
+//Output: {26:2,34:1,56:1}
