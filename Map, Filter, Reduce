@@ -1,3 +1,15 @@
+//Map example
+const users = [{first:"John", last:"A", age: 26},
+                {first:"Rachel", last:"A", age: 34},
+                {first:"Phoebee", last:"A", age: 56},
+                {first:"Monica", last:"A", age: 26}];
+                
+const output = users.map(ele=>ele.first+" "+ele.last);
+
+console.log(output);
+
+//[John A, Rachel A, Phoebee A, Monica A]
+
 //Reduce example
 const users = [{first:"John", last:"A", age: 26},
                 {first:"Rachel", last:"A", age: 34},
@@ -16,3 +28,30 @@ if(acc[curr.age]){
 console.log(output);
 
 //Output: {26:2,34:1,56:1}
+
+
+//map and filter chaining
+const users = [{first:"John", last:"A", age: 26},
+                {first:"Rachel", last:"A", age: 34},
+                {first:"Phoebee", last:"A", age: 56},
+                {first:"Monica", last:"A", age: 26}];
+                
+const output = users.filter(x=>x.age < 30).map(newX=>newX.first);
+
+console.log(output);
+
+//output: [John,Monica]
+//same output using reduce
+const users = [{first:"John", last:"A", age: 26},
+                {first:"Rachel", last:"A", age: 34},
+                {first:"Phoebee", last:"A", age: 56},
+                {first:"Monica", last:"A", age: 26}];
+                
+const output = users.reduce((acc,curr)=>{
+  if(curr.age<30){
+    acc.push(curr.first);
+  }
+  return acc;
+},[]);
+
+console.log(output);
